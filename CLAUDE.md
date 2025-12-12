@@ -4,22 +4,21 @@ CRITICAL: Read `open-agents/INSTRUCTIONS.md` immediately.
 
 ## Overview
 
-This is a PRD documentation project. All documentation lives in `docs/`.
+This is a PRD documentation project for Shows.
 
 ## Structure
 
 ```
 docs/
-├── drafts/     # Active working documents - edit here
-└── final/      # Authoritative final versions - finalize here
+├── shows_prd/  # Official PRD documents - the source of truth
+└── drafts/     # Optional scratch space for ideation
 ```
 
 ## Commands
 
 | Command | Purpose |
 |---------|---------|
-| `/docs:edit` | Edit and improve documents in drafts |
-| `/docs:finalize` | Produce final versions for release |
+| `/docs:edit` | Edit and improve documents |
 
 ## Critical Rule
 

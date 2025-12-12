@@ -1,24 +1,23 @@
 # Documentation Editing System
 
-An Open Agent System for PRD documentation editing and finalization.
+An Open Agent System for PRD documentation editing.
 
 ## Quick Start
 
-1. Place documents in `docs/drafts/`
-2. Use `/docs:edit` to improve them
-3. Use `/docs:finalize` to create final versions
+1. Work in `docs/shows_prd/` - this is the official PRD
+2. Use `/docs:edit` to improve documents
+3. Use `docs/drafts/` for experimentation (optional)
 
 ## Agents
 
-- **Document Editor** - Flow-edit and polish drafts
-- **Finalizer** - Produce authoritative final versions
+- **Document Editor** - Edit and polish documents
 
 ## Project Structure
 
 ```
 docs/
-├── drafts/     # Work here
-└── final/      # Final output lives here
+├── shows_prd/  # Official PRD - source of truth
+└── drafts/     # Optional scratch space
 ```
 
 All changes are automatically committed to git.

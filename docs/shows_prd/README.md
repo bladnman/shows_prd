@@ -2,6 +2,7 @@
 
 Start here:
 - `showbiz_prd.md` (the main PRD; product + features + rules)
+- `showbiz_infra_rider_prd.md` (required understanding of infra)
 
 Supporting materials:
 - `supporting_docs/ai_voice_personality.md` (AI “heart” / voice requirements; Search has no AI voice)

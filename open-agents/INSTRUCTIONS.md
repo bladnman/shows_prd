@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This system provides flow-editing and finalization capabilities for PRD documentation.
+This system provides editing capabilities for PRD documentation.
 
 ## How This System Works
 
@@ -14,12 +14,12 @@ This system provides flow-editing and finalization capabilities for PRD document
 
 ```
 docs/
-├── drafts/     # Active working documents
-└── final/      # Authoritative final versions
+├── shows_prd/  # Official PRD documents - the source of truth
+└── drafts/     # Optional scratch space for ideation
 ```
 
-- **drafts/** - Where all active editing happens. Documents being developed, revised, or reviewed live here.
-- **final/** - The authoritative output. When a document is ready for release, it gets finalized here.
+- **shows_prd/** - The official PRD. All authoritative documents live here.
+- **drafts/** - Optional workspace for experiments, rough ideas, or work-in-progress that isn't ready to be part of the official PRD yet.
 
 ## Critical Rule: Auto-Commit
 
@@ -28,16 +28,15 @@ docs/
 After any document modification:
 1. Stage the changed file(s)
 2. Commit with a descriptive message
-3. Format: `docs: <action> <filename>` (e.g., `docs: edit overview.md`, `docs: finalize prd.md`)
+3. Format: `docs: <action> <filename>` (e.g., `docs: edit showbiz_prd.md`)
 
 This ensures the full history of document evolution is preserved.
 
 ## Available Agents
 
-| Agent | Purpose | Trigger | Works On |
-|-------|---------|---------|----------|
-| [Document Editor](agents/document-editor.md) | Flow-edit and improve documentation | "edit", "improve", "polish" | `docs/drafts/` |
-| [Finalizer](agents/finalizer.md) | Produce final authoritative versions | "finalize", "publish", "release" | `docs/drafts/` → `docs/final/` |
+| Agent | Purpose | Works On |
+|-------|---------|----------|
+| [Document Editor](agents/document-editor.md) | Edit and improve documentation | `docs/shows_prd/` (primary), `docs/drafts/` (optional) |
 
 ## Routing Logic
 
@@ -47,22 +46,13 @@ This ensures the full history of document evolution is preserved.
 | "improve the writing" | Document Editor |
 | "polish this" | Document Editor |
 | "flow-edit" | Document Editor |
-| "finalize" | Finalizer |
-| "publish to final" | Finalizer |
-| "create final version" | Finalizer |
-| "release the PRD" | Finalizer |
 
 ## Workflow
 
-### Editing Flow
-1. Place or create documents in `docs/drafts/`
-2. Use `/docs:edit` to improve them iteratively
-3. Each edit is committed automatically
-
-### Finalization Flow
-1. When drafts are ready, use `/docs:finalize`
-2. Finalizer agent produces polished versions in `docs/final/`
-3. Final versions are the authoritative source of truth
+1. Work primarily in `docs/shows_prd/` - this is the official PRD
+2. Use `docs/drafts/` for experimentation or early-stage ideas
+3. Use `/docs:edit` to improve documents
+4. Each edit is committed automatically
 
 ## Adding New Agents
 
@@ -75,6 +65,4 @@ This ensures the full history of document evolution is preserved.
 ## Conventions
 
 - All documents live in `docs/` - never in `open-agents/`
-- Drafts can be edited freely and repeatedly
-- Final versions should only be updated via the Finalizer agent
 - Every change gets a git commit

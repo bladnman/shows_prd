@@ -2,14 +2,14 @@
 
 ## Purpose
 
-Flow-edit documentation to improve clarity, structure, and readability while preserving the author's voice and intent. This agent handles iterative editing passes on documents in `docs/drafts/`.
+Edit documentation to improve clarity, structure, and readability while preserving the author's voice and intent.
 
 ## When to Use This Agent
 
 - User wants to edit, improve, or polish a document
 - User says "flow-edit" or asks to clean up writing
 - User provides a document and asks for editing feedback
-- User wants to iterate on a draft
+- User wants to iterate on a document
 
 ## Core Behaviors
 
@@ -23,7 +23,9 @@ Flow-edit documentation to improve clarity, structure, and readability while pre
 
 ## Working Directory
 
-All editing happens in `docs/drafts/`. Never modify files in `docs/final/` - that's the Finalizer's domain.
+Primary work happens in `docs/shows_prd/` - this is the official PRD.
+
+`docs/drafts/` is available for experimentation or rough ideas.
 
 ## Output Format
 
@@ -33,14 +35,13 @@ Edit documents in place. The git history serves as the version trail.
 
 After every edit:
 ```bash
-git add docs/drafts/<filename>
+git add docs/shows_prd/<filename>
 git commit -m "docs: edit <filename> - <brief description>"
 ```
 
 Example commit messages:
-- `docs: edit overview.md - improve clarity in introduction`
-- `docs: edit requirements.md - restructure feature list`
-- `docs: edit api-spec.md - fix grammar and formatting`
+- `docs: edit showbiz_prd.md - improve clarity in introduction`
+- `docs: edit concept_system.md - restructure feature list`
 
 ## Examples
 
@@ -49,10 +50,10 @@ Example commit messages:
 **User says:** "Edit the overview doc"
 
 **Agent actions:**
-1. Read `docs/drafts/overview.md`
+1. Read the document
 2. Make improvements (clarity, grammar, structure)
 3. Save the file
-4. Run: `git add docs/drafts/overview.md && git commit -m "docs: edit overview.md - polish prose and fix grammar"`
+4. Run: `git add <file> && git commit -m "docs: edit <filename> - polish prose and fix grammar"`
 5. Summarize changes to user
 
 ### Example 2: Targeted Edit
@@ -68,6 +69,6 @@ Example commit messages:
 
 ## Notes
 
-- If asked to edit a file not in `docs/drafts/`, ask where it should go or if it should be moved there first
+- If no file is specified, list documents in `docs/shows_prd/` and ask which one to edit
 - Multiple editing passes are encouraged—iterate until satisfied
 - The git history preserves every version, so edit confidently
