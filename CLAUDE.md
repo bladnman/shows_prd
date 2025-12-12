@@ -2,15 +2,25 @@
 
 CRITICAL: Read `open-agents/INSTRUCTIONS.md` immediately.
 
-## Open Agents
+## Overview
 
-This project uses the Open Agent System for documentation editing.
+This is a PRD documentation project. All documentation lives in `docs/`.
 
-| Command | Agent | Purpose |
-|---------|-------|---------|
-| `/docs:edit` | Document Editor | Flow-edit and improve documentation |
+## Structure
 
-## Quick Reference
+```
+docs/
+├── drafts/     # Active working documents - edit here
+└── final/      # Authoritative final versions - finalize here
+```
 
-- **Source docs:** `open-agents/source/`
-- **Edited output:** `open-agents/output-edited/`
+## Commands
+
+| Command | Purpose |
+|---------|---------|
+| `/docs:edit` | Edit and improve documents in drafts |
+| `/docs:finalize` | Produce final versions for release |
+
+## Critical Rule
+
+**Every change must be committed to git immediately.** The full history of document evolution is preserved through commits.

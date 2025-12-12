@@ -1,20 +1,24 @@
 # Documentation Editing System
 
-An Open Agent System for flow-editing documentation.
+An Open Agent System for PRD documentation editing and finalization.
 
 ## Quick Start
 
-Place documents in `open-agents/source/` and use the `/docs:edit` command to process them.
+1. Place documents in `docs/drafts/`
+2. Use `/docs:edit` to improve them
+3. Use `/docs:finalize` to create final versions
 
-## Structure
+## Agents
+
+- **Document Editor** - Flow-edit and polish drafts
+- **Finalizer** - Produce authoritative final versions
+
+## Project Structure
 
 ```
-open-agents/
-├── agents/          # Agent definitions
-├── source/          # Input documents to edit
-└── output-edited/   # Processed documents
+docs/
+├── drafts/     # Work here
+└── final/      # Final output lives here
 ```
 
-## Available Commands
-
-- `/docs:edit <filename or instructions>` - Edit a document with the flow editor
+All changes are automatically committed to git.
